@@ -55,7 +55,7 @@
   become: true
   when:
     - ntp_daemon_choice == "chrony"
-    - ansible_os_family == "RedHat"
+    - ansible_facts['os_family'] == "RedHat"
   ansible.builtin.copy:
     content: |
       # ansible_managed
@@ -69,7 +69,7 @@
   become: true
   when:
     - ntp_daemon_choice == "chrony"
-    - ansible_os_family == "Debian"
+    - ansible_facts['os_family'] == "Debian"
   ansible.builtin.copy:
     content: |
       # ansible_managed
